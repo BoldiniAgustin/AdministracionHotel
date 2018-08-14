@@ -34,72 +34,72 @@ public class Final1 {
         frame.setLayout(null);
         frame.getContentPane().setBackground(Color.gray);
 
-        JLabel labelTitulo = new JLabel("REGISTRO CLIENTE");
-        labelTitulo.setBounds(150, 10, 200, 20);
-        labelTitulo.setForeground(Color.black);
-        labelTitulo.setFont(negrita);
+        JLabel lblTitulo = new JLabel("REGISTRO CLIENTE");
+        lblTitulo.setBounds(150, 10, 200, 20);
+        lblTitulo.setForeground(Color.black);
+        lblTitulo.setFont(negrita);
 
-        JLabel labelGrupo = new JLabel("Grupo");
-        labelGrupo.setBounds(15, 30, 200, 20);
-        labelGrupo.setForeground(Color.black);
+        JLabel lblGrupo = new JLabel("Grupo");
+        lblGrupo.setBounds(15, 30, 200, 20);
+        lblGrupo.setForeground(Color.black);
 
-        JTextField fieldGrupo = new JTextField();
-        fieldGrupo.setBounds(15, 50, 470, 20);
+        JTextField fldGrupo = new JTextField();
+        fldGrupo.setBounds(15, 50, 470, 20);
 
-        JLabel labelNombre = new JLabel("APELLIDO, Nombre");
-        labelNombre.setBounds(15, 80, 200, 20);
-        labelNombre.setForeground(Color.black);
+        JLabel lblNombre = new JLabel("APELLIDO, Nombre");
+        lblNombre.setBounds(15, 80, 200, 20);
+        lblNombre.setForeground(Color.black);
 
-        JTextField fieldNombre = new JTextField();
-        fieldNombre.setBounds(15, 100, 470, 20);
+        JTextField fldNombre = new JTextField();
+        fldNombre.setBounds(15, 100, 470, 20);
 
-        JLabel labelDni = new JLabel("Documento Nacional de Identidad (DNI)");
-        labelDni.setBounds(15, 130, 300, 20);
-        labelDni.setForeground(Color.black);
+        JLabel lblDni = new JLabel("Documento Nacional de Identidad (DNI)");
+        lblDni.setBounds(15, 130, 300, 20);
+        lblDni.setForeground(Color.black);
 
-        JTextField fieldDni = new JTextField();
-        fieldDni.setBounds(15, 150, 470, 20);
+        JTextField fldDni = new JTextField();
+        fldDni.setBounds(15, 150, 470, 20);
 
-        JLabel labelNacionalidad = new JLabel("Nacionalidad");
-        labelNacionalidad.setBounds(15, 180, 150, 20);
-        labelNacionalidad.setForeground(Color.black);
+        JLabel lblNacionalidad = new JLabel("Nacionalidad");
+        lblNacionalidad.setBounds(15, 180, 150, 20);
+        lblNacionalidad.setForeground(Color.black);
 
-        JTextField fieldNacionalidad = new JTextField();
-        fieldNacionalidad.setBounds(15, 200, 470, 20);
+        JTextField fldNacionalidad = new JTextField();
+        fldNacionalidad.setBounds(15, 200, 470, 20);
 
-        JLabel labelSexo = new JLabel("Sexo");
-        labelSexo.setBounds(15, 280, 150, 20);
-        labelSexo.setForeground(Color.black);
+        JLabel lblSexo = new JLabel("Sexo");
+        lblSexo.setBounds(15, 280, 150, 20);
+        lblSexo.setForeground(Color.black);
 
-        JComboBox comboBoxSexo = new JComboBox();
-        comboBoxSexo.addItem("Masculino");
-        comboBoxSexo.addItem("Femenino");
-        comboBoxSexo.setBounds(15, 300, 170, 20);
+        JComboBox cmbBxSexo = new JComboBox();
+        cmbBxSexo.addItem("Masculino");
+        cmbBxSexo.addItem("Femenino");
+        cmbBxSexo.setBounds(15, 300, 170, 20);
 
         JLabel lblNacimiento = new JLabel("Fecha de nacimiento");
         lblNacimiento.setBounds(15, 230, 200, 20);
         lblNacimiento.setForeground(Color.black);
 
-        JTextField fieldDia = new JTextField();
-        fieldDia.setBounds(15, 250, 40, 20);
+        JTextField fldDia = new JTextField();
+        fldDia.setBounds(15, 250, 40, 20);
         JLabel lbl1 = new JLabel("/");
         lbl1.setBounds(60, 250, 10, 20);
         lbl1.setFont(negrita);
-        JTextField fieldMes = new JTextField();
-        fieldMes.setBounds(70, 250, 40, 20);
+        JTextField fldMes = new JTextField();
+        fldMes.setBounds(70, 250, 40, 20);
         JLabel lbl2 = new JLabel("/");
         lbl2.setFont(negrita);
         lbl2.setBounds(115, 250, 10, 20);
-        JTextField fieldAnio = new JTextField();
-        fieldAnio.setBounds(125, 250, 60, 20);
+        JTextField fldAnio = new JTextField();
+        fldAnio.setBounds(125, 250, 60, 20);
 
         JLabel lblAdd = new JLabel("Gente a añadir");
         lblAdd.setBounds(550, 10, 200, 20);
         lblAdd.setFont(negrita);
         lblAdd.setForeground(Color.black);
 
-        JComboBox comboBoxAdd = new JComboBox();
-        comboBoxAdd.setBounds(520, 50, 200, 20);
+        JComboBox cmbBxAdd = new JComboBox();
+        cmbBxAdd.setBounds(520, 50, 200, 20);
 
         JButton btnBorrar = new JButton("Borrar Integrante");
         btnBorrar.setBounds(520, 250, 200, 30);
@@ -116,91 +116,91 @@ public class Final1 {
         btnLimpiar.setMnemonic('L');
 
         //Actions
-        fieldGrupo.addActionListener((e) -> {
-            fieldNombre.requestFocus();
+        fldGrupo.addActionListener((e) -> {
+            fldNombre.requestFocus();
         });
 
-        fieldNombre.addActionListener((e) -> {
-            fieldDni.requestFocus();
+        fldNombre.addActionListener((e) -> {
+            fldDni.requestFocus();
         });
 
-        fieldDni.addActionListener((e) -> {
-            fieldNacionalidad.requestFocus();
+        fldDni.addActionListener((e) -> {
+            fldNacionalidad.requestFocus();
         });
 
-        fieldNacionalidad.addActionListener((e) -> {
-            fieldDia.requestFocus();
+        fldNacionalidad.addActionListener((e) -> {
+            fldDia.requestFocus();
         });
 
-        fieldDia.addActionListener((e) -> {
-            fieldMes.requestFocus();
+        fldDia.addActionListener((e) -> {
+            fldMes.requestFocus();
         });
 
-        fieldMes.addActionListener((e) -> {
-            fieldAnio.requestFocus();
+        fldMes.addActionListener((e) -> {
+            fldAnio.requestFocus();
         });
 
         btnLimpiar.addActionListener((e) -> {
-            fieldNombre.setText("");
-            fieldGrupo.setText("");
-            fieldNacionalidad.setText("");
-            fieldAnio.setText("");
-            fieldDia.setText("");
-            fieldDni.setText("");
-            fieldMes.setText("");
+            fldNombre.setText("");
+            fldGrupo.setText("");
+            fldNacionalidad.setText("");
+            fldAnio.setText("");
+            fldDia.setText("");
+            fldDni.setText("");
+            fldMes.setText("");
         });
 
         btnAnadir.addActionListener((e) -> {
             try {
-                String nacimientotxt = fieldDia.getText() + "/" + fieldMes.getText() + "/" + fieldAnio.getText();
+                String nacimientotxt = fldDia.getText() + "/" + fldMes.getText() + "/" + fldAnio.getText();
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 Date nacimiento = sdf.parse(nacimientotxt);
-                Cliente c = new Cliente(fieldNombre.getText(), fieldDni.getText(), fieldNacionalidad.getText(), nacimiento, "Masculino".equals(comboBoxSexo.getSelectedItem()));
+                Cliente c = new Cliente(fldNombre.getText(), fldDni.getText(), fldNacionalidad.getText(), nacimiento, "Masculino".equals(cmbBxSexo.getSelectedItem()));
                 personas.add(c);
-                c.setGrupo(fieldGrupo.getText());
+                c.setGrupo(fldGrupo.getText());
             } catch (ParseException ex) {
             }
         });
 
         btnAnadir.addActionListener((e) -> {
-            comboBoxAdd.addItem(fieldNombre.getText());
-            fieldNombre.setText("");
-            fieldGrupo.setText("");
-            fieldNacionalidad.setText("");
-            fieldAnio.setText("");
-            fieldDia.setText("");
-            fieldDni.setText("");
-            fieldMes.setText("");
+            cmbBxAdd.addItem(fldNombre.getText());
+            fldNombre.setText("");
+            fldGrupo.setText("");
+            fldNacionalidad.setText("");
+            fldAnio.setText("");
+            fldDia.setText("");
+            fldDni.setText("");
+            fldMes.setText("");
         });
 
         btnBorrar.addActionListener((e) -> {
-            comboBoxAdd.removeItem(comboBoxAdd.getSelectedItem());
+            cmbBxAdd.removeItem(cmbBxAdd.getSelectedItem());
         });
 
         //Adds
         frame.add(btnConfirmar);
         frame.add(btnBorrar);
         frame.add(lblAdd);
-        frame.add(comboBoxAdd);
+        frame.add(cmbBxAdd);
         frame.add(btnLimpiar);
         frame.add(btnAnadir);
         frame.add(lblNacimiento);
-        frame.add(fieldDia);
+        frame.add(fldDia);
         frame.add(lbl1);
-        frame.add(fieldMes);
+        frame.add(fldMes);
         frame.add(lbl2);
-        frame.add(fieldAnio);
-        frame.add(labelGrupo);
-        frame.add(fieldGrupo);
-        frame.add(labelSexo);
-        frame.add(comboBoxSexo);
-        frame.add(labelTitulo);
-        frame.add(labelNombre);
-        frame.add(fieldNombre);
-        frame.add(labelDni);
-        frame.add(fieldDni);
-        frame.add(labelNacionalidad);
-        frame.add(fieldNacionalidad);
+        frame.add(fldAnio);
+        frame.add(lblGrupo);
+        frame.add(fldGrupo);
+        frame.add(lblSexo);
+        frame.add(cmbBxSexo);
+        frame.add(lblTitulo);
+        frame.add(lblNombre);
+        frame.add(fldNombre);
+        frame.add(lblDni);
+        frame.add(fldDni);
+        frame.add(lblNacionalidad);
+        frame.add(fldNacionalidad);
         frame.setVisible(true);
     }
 }
