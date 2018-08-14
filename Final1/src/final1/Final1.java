@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package final1;
 
 import java.awt.Color;
@@ -19,17 +14,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-/**
- *
- * @author francobustos
- */
 public class Final1 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+
         Final1 pestaña = new Final1();
     }
 
@@ -88,9 +76,9 @@ public class Final1 {
         comboBoxSexo.addItem("Femenino");
         comboBoxSexo.setBounds(15, 300, 170, 20);
 
-        JLabel labelNacimiento = new JLabel("Fecha de nacimiento");
-        labelNacimiento.setBounds(15, 230, 200, 20);
-        labelNacimiento.setForeground(Color.black);
+        JLabel lblNacimiento = new JLabel("Fecha de nacimiento");
+        lblNacimiento.setBounds(15, 230, 200, 20);
+        lblNacimiento.setForeground(Color.black);
 
         JTextField fieldDia = new JTextField();
         fieldDia.setBounds(15, 250, 40, 20);
@@ -105,42 +93,66 @@ public class Final1 {
         JTextField fieldAnio = new JTextField();
         fieldAnio.setBounds(125, 250, 60, 20);
 
+        JLabel lblAdd = new JLabel("Gente a añadir");
+        lblAdd.setBounds(550, 10, 200, 20);
+        lblAdd.setFont(negrita);
+        lblAdd.setForeground(Color.black);
+
+        JComboBox comboBoxAdd = new JComboBox();
+        comboBoxAdd.setBounds(520, 50, 200, 20);
+
+        JButton btnBorrar = new JButton("Borrar Integrante");
+        btnBorrar.setBounds(520, 250, 200, 30);
+
         JButton btnAnadir = new JButton("Añadir");
         btnAnadir.setBounds(210, 250, 100, 70);
         btnAnadir.setMnemonic('A');
 
+        JButton btnConfirmar = new JButton("Confirmar");
+        btnConfirmar.setBounds(520, 300, 200, 30);
+
         JButton btnLimpiar = new JButton("Limpiar");
         btnLimpiar.setBounds(320, 250, 100, 70);
         btnLimpiar.setMnemonic('L');
-        
+
         //Actions
         fieldGrupo.addActionListener((e) -> {
             fieldNombre.requestFocus();
         });
-        
+
         fieldNombre.addActionListener((e) -> {
             fieldDni.requestFocus();
         });
-        
+
         fieldDni.addActionListener((e) -> {
             fieldNacionalidad.requestFocus();
         });
-        
+
         fieldNacionalidad.addActionListener((e) -> {
             fieldDia.requestFocus();
         });
-        
+
         fieldDia.addActionListener((e) -> {
-           fieldMes.requestFocus(); 
+            fieldMes.requestFocus();
         });
-        
+
         fieldMes.addActionListener((e) -> {
-           fieldAnio.requestFocus(); 
+            fieldAnio.requestFocus();
         });
-        
+
+        btnLimpiar.addActionListener((e) -> {
+            fieldNombre.setText("");
+            fieldGrupo.setText("");
+            fieldNacionalidad.setText("");
+            fieldAnio.setText("");
+            fieldDia.setText("");
+            fieldDni.setText("");
+            fieldMes.setText("");
+        });
+
         btnAnadir.addActionListener((e) -> {
             try {
-                String nacimientotxt = fieldDia.getText()+"/"+fieldMes.getText()+"/"+fieldAnio.getText();
+                String nacimientotxt = fieldDia.getText() + "/" + fieldMes.getText() + "/" + fieldAnio.getText();
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 Date nacimiento = sdf.parse(nacimientotxt);
                 Cliente c = new Cliente(fieldNombre.getText(), fieldDni.getText(), fieldNacionalidad.getText(), nacimiento, "Masculino".equals(comboBoxSexo.getSelectedItem()));
@@ -149,12 +161,30 @@ public class Final1 {
             } catch (ParseException ex) {
             }
         });
-        
-        
+
+        btnAnadir.addActionListener((e) -> {
+            comboBoxAdd.addItem(fieldNombre.getText());
+            fieldNombre.setText("");
+            fieldGrupo.setText("");
+            fieldNacionalidad.setText("");
+            fieldAnio.setText("");
+            fieldDia.setText("");
+            fieldDni.setText("");
+            fieldMes.setText("");
+        });
+
+        btnBorrar.addActionListener((e) -> {
+            comboBoxAdd.removeItem(comboBoxAdd.getSelectedItem());
+        });
+
         //Adds
+        frame.add(btnConfirmar);
+        frame.add(btnBorrar);
+        frame.add(lblAdd);
+        frame.add(comboBoxAdd);
         frame.add(btnLimpiar);
         frame.add(btnAnadir);
-        frame.add(labelNacimiento);
+        frame.add(lblNacimiento);
         frame.add(fieldDia);
         frame.add(lbl1);
         frame.add(fieldMes);
