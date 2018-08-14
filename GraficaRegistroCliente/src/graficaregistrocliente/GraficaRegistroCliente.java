@@ -108,18 +108,37 @@ public class GraficaRegistroCliente {
         btnAñadir.addActionListener((e)->{
             comboBoxAdd.addItem(fieldNombre.getText());
             fieldNombre.setText("");
+            fieldGrupo.setText("");
+            fieldNacionalidad.setText("");
+            fieldAnio.setText("");
+            fieldDia.setText("");
+            fieldDni.setText("");
+            fieldMes.setText("");
         });
         
         JButton btnBorrar = new JButton("Borrar Integrante");
-        btnBorrar.setBounds(520, 150, 200, 20);
+        btnBorrar.setBounds(520, 250, 200, 30);
         btnBorrar.addActionListener((e) -> {
             comboBoxAdd.removeItem(comboBoxAdd.getSelectedItem());
         });
         
+        JButton btnConfirmar = new JButton("Confirmar");
+        btnConfirmar.setBounds(520, 300, 200, 30);
+        
         
         JButton btnLimpiar = new JButton("Limpiar");
         btnLimpiar.setBounds(320, 250, 100, 70);
+        btnLimpiar.addActionListener((e)->{
+            fieldNombre.setText("");
+            fieldGrupo.setText("");
+            fieldNacionalidad.setText("");
+            fieldAnio.setText("");
+            fieldDia.setText("");
+            fieldDni.setText("");
+            fieldMes.setText("");
+        });
         
+        frame.add(btnConfirmar);
         frame.add(btnBorrar);
         frame.add(lblAdd);
         frame.add(comboBoxAdd);
