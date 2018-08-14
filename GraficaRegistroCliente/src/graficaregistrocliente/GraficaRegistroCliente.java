@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -21,8 +20,8 @@ public class GraficaRegistroCliente {
         Font negrita = new Font("Arial", Font.BOLD, 18);
 
         JFrame frame = new JFrame("Regristo Cliente");
-        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 350);
         frame.setResizable(false);
         frame.setLayout(null);
         frame.getContentPane().setBackground(Color.gray);
@@ -33,9 +32,9 @@ public class GraficaRegistroCliente {
         labelTitulo.setFont(negrita);
 
 
-        JLabel labelGrupo = new JLabel("Grupo");
-        labelGrupo.setBounds(15, 30, 200, 20);
-        labelGrupo.setForeground(Color.black);
+        JLabel lblGrupo = new JLabel("Grupo");
+        lblGrupo.setBounds(15, 30, 200, 20);
+        lblGrupo.setForeground(Color.black);
         
         JTextField fieldGrupo = new JTextField();
         fieldGrupo.setBounds(15, 50, 470, 20);
@@ -65,9 +64,9 @@ public class GraficaRegistroCliente {
         fieldNacionalidad.setBounds(15, 200, 470, 20);
         
         
-        JLabel labelSexo = new JLabel("Sexo");
-        labelSexo.setBounds(15, 280, 150, 20);
-        labelSexo.setForeground(Color.black);
+        JLabel lblSexo = new JLabel("Sexo");
+        lblSexo.setBounds(15, 280, 150, 20);
+        lblSexo.setForeground(Color.black);
         
         JComboBox comboBoxSexo = new JComboBox();
         comboBoxSexo.addItem("Masculino");
@@ -92,23 +91,49 @@ public class GraficaRegistroCliente {
         JTextField fieldAnio = new JTextField();
         fieldAnio.setBounds(125, 250, 60, 20);
         
-        JButton btnMiembro = new JButton("Añadir");
-        btnMiembro.setBounds(210, 250, 100, 70);
+        JLabel lblAdd = new JLabel("Gente a añadir");
+        lblAdd.setBounds(550, 10, 200, 20);
+        lblAdd.setFont(negrita);
+        lblAdd.setForeground(Color.black);
+        
+        JComboBox comboBoxAdd = new JComboBox();
+        comboBoxAdd.setBounds(520, 50, 200, 20);
+        
+        
+        
+        
+        JButton btnAñadir = new JButton("Añadir");
+        btnAñadir.setBounds(210, 250, 100, 70);
+        btnAñadir.setMnemonic(0);
+        btnAñadir.addActionListener((e)->{
+            comboBoxAdd.addItem(fieldNombre.getText());
+            fieldNombre.setText("");
+        });
+        
+        JButton btnBorrar = new JButton("Borrar Integrante");
+        btnBorrar.setBounds(520, 150, 200, 20);
+        btnBorrar.addActionListener((e) -> {
+            comboBoxAdd.removeItem(comboBoxAdd.getSelectedItem());
+        });
+        
         
         JButton btnLimpiar = new JButton("Limpiar");
         btnLimpiar.setBounds(320, 250, 100, 70);
         
+        frame.add(btnBorrar);
+        frame.add(lblAdd);
+        frame.add(comboBoxAdd);
         frame.add(btnLimpiar);
-        frame.add(btnMiembro);
+        frame.add(btnAñadir);
         frame.add(labelNacimiento);
         frame.add(fieldDia);
         frame.add(lbl1);
         frame.add(fieldMes);
         frame.add(lbl2);
         frame.add(fieldAnio);
-        frame.add(labelGrupo);
+        frame.add(lblGrupo);
         frame.add(fieldGrupo);
-        frame.add(labelSexo);
+        frame.add(lblSexo);
         frame.add(comboBoxSexo);
         frame.add(labelTitulo);
         frame.add(labelNombre);
