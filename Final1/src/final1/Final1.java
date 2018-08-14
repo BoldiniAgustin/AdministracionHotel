@@ -145,6 +145,7 @@ public class Final1 {
                 Date nacimiento = sdf.parse(nacimientotxt);
                 Cliente c = new Cliente(fieldNombre.getText(), fieldDni.getText(), fieldNacionalidad.getText(), nacimiento, "Masculino".equals(comboBoxSexo.getSelectedItem()));
                 personas.add(c);
+                c.setGrupo(fieldGrupo.getText());
             } catch (ParseException ex) {
             }
         });

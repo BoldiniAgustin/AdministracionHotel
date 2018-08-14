@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author francobustos
  */
-public class Cliente {
+public class Cliente extends Grupo{
 
     private Date nacimiento;
     private String dni;
