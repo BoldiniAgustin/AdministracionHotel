@@ -10,12 +10,13 @@ package final1;
  * @author francobustos
  */
 public class Grupo {
+
     private String grupo;
 
-    public Grupo(){
+    public Grupo() {
         grupo = "";
     }
-    
+
     public Grupo(String grupo) {
         this.grupo = grupo;
     }
@@ -27,6 +28,5 @@ public class Grupo {
     public void setGrupo(String grupo) {
         this.grupo = grupo;
     }
-    
-    
+
 }
