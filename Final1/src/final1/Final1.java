@@ -18,7 +18,7 @@ public class Final1 {
 
     public static void main(String[] args) {
 
-        Final1 pestaña = new Final1();
+        Servicios pestaña = new Servicios();
     }
 
     public Final1() {
