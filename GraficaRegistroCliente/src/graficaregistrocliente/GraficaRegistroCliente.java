@@ -11,9 +11,7 @@ import javax.swing.JTextField;
 
 public class GraficaRegistroCliente {
 
-    public static void main(String[] args) {
-        ClienteInterfaz registro = new ClienteInterfaz();
-    }
+    
     
     public GraficaRegistroCliente(){
 
