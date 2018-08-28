@@ -118,7 +118,7 @@ public class Servicios {
         });
         
         btnServicio.addActionListener((e) -> {
-            
+            SubServicios serv = new SubServicios();
         });
         
         

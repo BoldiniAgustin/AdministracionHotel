@@ -16,11 +16,6 @@ import javax.swing.JTextField;
 
 public class Final1 {
 
-    public static void main(String[] args) {
-
-        Servicios pestaña = new Servicios();
-    }
-
     public Final1() {
         HashMap grupo = new HashMap();
         List<Cliente> personas = new ArrayList<>();
