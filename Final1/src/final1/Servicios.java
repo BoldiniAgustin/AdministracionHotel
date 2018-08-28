@@ -17,6 +17,7 @@ import javax.swing.border.Border;
 public class Servicios {
     protected Ganancia ganancia;
     protected JTextArea areaFeed;
+    protected int total;
 
     public Servicios() {
         //Objects
@@ -88,34 +89,49 @@ public class Servicios {
 
         JLabel lblTotal = new JLabel("Franco haz tu magia xdd");
         lblTotal.setBounds(200, 30, 400, 90);
+        lblTotal.setText("Total: " + total);
 
         //Funciones
         btnTeatro.addActionListener((e) -> {
             registro("Teatro: U$D " + ganancia.getTeatro()+ "\n", areaFeed);
+            total= total + ganancia.getTeatro();
+            lblTotal.setText("Total:" + total);
         });
         
         btnAlmuerzo.addActionListener((e) -> {
             registro("Almuerzo: U$D " + ganancia.getAlmuerzo()+ "\n", areaFeed);
+            total= total + ganancia.getAlmuerzo();
+            lblTotal.setText("Total:" + total);
         });
         
         btnCena.addActionListener((e) -> {
             registro("Cena: U$D " + ganancia.getCena()+ "\n", areaFeed);
+            total= total + ganancia.getCena();
+            lblTotal.setText("Total:" + total);
         });
         
         btnCine.addActionListener((e) -> {
             registro("Cine: U$D " + + ganancia.getCine()+ "\n", areaFeed);
+            total= total + ganancia.getCine();
+            lblTotal.setText("Total:" + total);
         });
         
         btnDesayuno.addActionListener((e) -> {
             registro("Desayuno: U$D " + ganancia.getDesayuno()+ "\n", areaFeed);
+            total= total + ganancia.getDesayuno();
+            lblTotal.setText("Total:" + total);
         });
         
         btnPileta.addActionListener((e) -> {
             registro("Pileta: U$D " + ganancia.getPileta()+ "\n", areaFeed);
+            total= total + ganancia.getPileta();
+            lblTotal.setText("Total:" + total);
         });
         
         btnSpa.addActionListener((e) -> {
             registro("Spa: U$D " + ganancia.getSpa() + "\n", areaFeed);
+            total= total + ganancia.getSpa();
+            lblTotal.setText("Total:" + total);
         });
         
         btnServicio.addActionListener((e) -> {
