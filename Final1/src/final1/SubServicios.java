@@ -9,13 +9,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.border.Border;
 
-public class SubServicios {
+public class SubServicios extends Servicios{
     
     public SubServicios() {
         Font negrita = new Font("Arial", Font.BOLD, 18);
         Border blackline = BorderFactory.createLineBorder(Color.black);
 
-        JFrame frame = new JFrame("Cliente");
+        JFrame frame = new JFrame("Servicios a Habitacion");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 200);
         frame.setResizable(false);
@@ -26,35 +26,35 @@ public class SubServicios {
         lblTotal.setBounds(175, 15, 200, 20);
         lblTotal.setFont(negrita);
         
-        JButton btnUno = new JButton("Gaseosa: U$D 2");
-        btnUno.setBounds(15, 40, 150, 50);
-        btnUno.setBackground(Color.black);
-        btnUno.setForeground(Color.white);
+        JButton btnGaseosa = new JButton("Gaseosa: U$D " + ganancia.getGasesosa());
+        btnGaseosa.setBounds(15, 40, 150, 50);
+        btnGaseosa.setBackground(Color.black);
+        btnGaseosa.setForeground(Color.white);
 
-        JButton btnDos = new JButton("Tostado: U$D 3");
-        btnDos.setBounds(15, 100, 150, 50);
-        btnDos.setBackground(Color.black);
-        btnDos.setForeground(Color.white);
+        JButton btnTostado = new JButton("Tostado: U$D " + ganancia.getTostado());
+        btnTostado.setBounds(15, 100, 150, 50);
+        btnTostado.setBackground(Color.black);
+        btnTostado.setForeground(Color.white);
 
-        JButton btnTres = new JButton("Cerveza: U$D 5");
-        btnTres.setBounds(175, 40, 150, 50);
-        btnTres.setBackground(Color.black);
-        btnTres.setForeground(Color.white);
+        JButton btnCerveza = new JButton("Cerveza: U$D " + ganancia.getCerveza());
+        btnCerveza.setBounds(175, 40, 150, 50);
+        btnCerveza.setBackground(Color.black);
+        btnCerveza.setForeground(Color.white);
 
-        JButton btnCuatro = new JButton("Vino: U$D 10");
-        btnCuatro.setBounds(175, 100, 150, 50);
-        btnCuatro.setBackground(Color.black);
-        btnCuatro.setForeground(Color.white);
+        JButton btnVino = new JButton("Vino: U$D " + ganancia.getVino());
+        btnVino.setBounds(175, 100, 150, 50);
+        btnVino.setBackground(Color.black);
+        btnVino.setForeground(Color.white);
 
-        JButton btnCinco = new JButton("Snacks: U$D 1");
-        btnCinco.setBounds(335, 40, 150, 50);
-        btnCinco.setBackground(Color.black);
-        btnCinco.setForeground(Color.white);
+        JButton btnSnacks = new JButton("Snacks: U$D " + ganancia.getSnacks());
+        btnSnacks.setBounds(335, 40, 150, 50);
+        btnSnacks.setBackground(Color.black);
+        btnSnacks.setForeground(Color.white);
 
-        JButton btnSeis = new JButton("Licuado: U$D 3");
-        btnSeis.setBounds(335, 100, 150, 50);
-        btnSeis.setBackground(Color.black);
-        btnSeis.setForeground(Color.white);
+        JButton btnLicuado = new JButton("Licuado: U$D " + ganancia.getLicuado());
+        btnLicuado.setBounds(335, 100, 150, 50);
+        btnLicuado.setBackground(Color.black);
+        btnLicuado.setForeground(Color.white);
         
         JButton btnCancelar = new JButton("Cancelar");
         btnCancelar.setBounds(15, 160, 470, 30);
@@ -62,28 +62,34 @@ public class SubServicios {
         btnCancelar.setForeground(Color.white);
         
         
-        btnUno.addActionListener((ActionEvent e) -> {
-            
+        btnGaseosa.addActionListener((ActionEvent e) -> {
+            registro("Gaseosa: U$D " + ganancia.getGaseosa()+ "\n", areaFeed);
+            frame.dispose();
         });
         
-        btnDos.addActionListener((ActionEvent e) -> {
-            
+        btnTostado.addActionListener((ActionEvent e) -> {
+            registro("Tostado: U$D " + ganancia.getTostado()+ "\n", areaFeed);
+            frame.dispose();
         });
         
-        btnTres.addActionListener((ActionEvent e) -> {
-            
+        btnCerveza.addActionListener((ActionEvent e) -> {
+            registro("Cerveza: U$D " + ganancia.getCerveza()+ "\n", areaFeed);
+            frame.dispose();
         });
         
-        btnCuatro.addActionListener((ActionEvent e) -> {
-            
+        btnVino.addActionListener((ActionEvent e) -> {
+            registro("Vino: U$D " + ganancia.getVino()+ "\n", areaFeed);
+            frame.dispose();
         });
         
-        btnCinco.addActionListener((ActionEvent e) -> {
-            
+        btnSnacks.addActionListener((ActionEvent e) -> {
+            registro("Snacks: U$D " + ganancia.getSnacks()+ "\n", areaFeed);
+            frame.dispose();
         });
         
-        btnSeis.addActionListener((ActionEvent e) -> {
-            
+        btnLicuado.addActionListener((ActionEvent e) -> {
+            registro("Licuado: U$D " + ganancia.getLicuado()+ "\n", areaFeed);
+            frame.dispose();
         });
         
         btnCancelar.addActionListener((ActionEvent e) -> {
@@ -93,12 +99,12 @@ public class SubServicios {
         
         frame.add(btnCancelar);
         frame.add(lblTotal);
-        frame.add(btnUno);
-        frame.add(btnDos);
-        frame.add(btnTres);
-        frame.add(btnCuatro);
-        frame.add(btnCinco);
-        frame.add(btnSeis);
+        frame.add(btnGaseosa);
+        frame.add(btnTostado);
+        frame.add(btnCerveza);
+        frame.add(btnVino);
+        frame.add(btnSnacks);
+        frame.add(btnLicuado);
         frame.setVisible(true);
     }
     

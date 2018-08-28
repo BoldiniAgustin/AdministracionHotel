@@ -15,7 +15,8 @@ import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
 public class Servicios {
-    private Ganancia ganancia;
+    protected Ganancia ganancia;
+    protected JTextArea areaFeed;
 
     public Servicios() {
         //Objects
@@ -80,7 +81,7 @@ public class Servicios {
         btnCancelar.setBackground(Color.black);
         btnCancelar.setForeground(Color.white);
 
-        JTextArea areaFeed = new JTextArea();
+        areaFeed = new JTextArea();
         areaFeed.setBounds(200, 136, 400, 300);
         areaFeed.setBorder(blackline);
         areaFeed.setEditable(false);
@@ -137,6 +138,14 @@ public class Servicios {
         frame.add(btnAceptar);
         frame.add(btnCancelar);
         frame.setVisible(true);
+    }
+
+    public Ganancia getGanancia() {
+        return ganancia;
+    }
+
+    public void setGanancia(Ganancia ganancia) {
+        this.ganancia = ganancia;
     }
     
     public void registro(String texto, JTextArea areaFeed){
