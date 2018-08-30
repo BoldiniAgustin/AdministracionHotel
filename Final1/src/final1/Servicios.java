@@ -15,13 +15,29 @@ import javax.swing.JTextArea;
 import javax.swing.border.Border;
 
 public class Servicios {
+
     protected Ganancia ganancia;
     protected JTextArea areaFeed;
     protected int total;
+    protected JButton btnServicio = new JButton("<html>Servicio a<br />habitacion*</html>");
+    protected JLabel lblTotal = new JLabel("");
+    protected int gaseosa = 0;
+    protected int tostado = 0;
+    protected int cerveza = 0;
+    protected int vino = 0;
+    protected int snacks = 0;
+    protected int licuado = 0;
+    private int teatro = 0;
+    private int cine = 0;
+    private int cena = 0;
+    private int almuerzo = 0;
+    private int desayuno = 0;
+    private int pileta = 0;
+    private int spa = 0;
 
     public Servicios() {
         //Objects
-        ganancia=new Ganancia();
+        ganancia = new Ganancia();
         Font negrita = new Font("Arial", Font.BOLD, 18);
         Border blackline = BorderFactory.createLineBorder(Color.black);
 
@@ -57,7 +73,7 @@ public class Servicios {
         btnDesayuno.setBackground(Color.black);
         btnDesayuno.setForeground(Color.white);
 
-        JButton btnPileta = new JButton("<html>Pileta climatizada<br />U$D "+ ganancia.getPileta() + "</html>");
+        JButton btnPileta = new JButton("<html>Pileta climatizada<br />U$D " + ganancia.getPileta() + "</html>");
         btnPileta.setBounds(605, 135, 180, 90);
         btnPileta.setBackground(Color.black);
         btnPileta.setForeground(Color.white);
@@ -67,7 +83,6 @@ public class Servicios {
         btnSpa.setBackground(Color.black);
         btnSpa.setForeground(Color.white);
 
-        JButton btnServicio = new JButton("<html>Servicio a<br />habitacion*</html>");
         btnServicio.setBounds(605, 345, 180, 90);
         btnServicio.setBackground(Color.black);
         btnServicio.setForeground(Color.white);
@@ -87,60 +102,110 @@ public class Servicios {
         areaFeed.setBorder(blackline);
         areaFeed.setEditable(false);
 
-        JLabel lblTotal = new JLabel("Franco haz tu magia xdd");
         lblTotal.setBounds(200, 30, 400, 90);
         lblTotal.setText("Total: " + total);
 
         //Funciones
         btnTeatro.addActionListener((e) -> {
-            registro("Teatro: U$D " + ganancia.getTeatro()+ "\n", areaFeed);
-            total= total + ganancia.getTeatro();
+            registro("Teatro: U$D " + ganancia.getTeatro() + "\n", areaFeed);
+            total = total + ganancia.getTeatro();
             lblTotal.setText("Total:" + total);
+            teatro += 1;
         });
-        
+
         btnAlmuerzo.addActionListener((e) -> {
-            registro("Almuerzo: U$D " + ganancia.getAlmuerzo()+ "\n", areaFeed);
-            total= total + ganancia.getAlmuerzo();
+            registro("Almuerzo: U$D " + ganancia.getAlmuerzo() + "\n", areaFeed);
+            total = total + ganancia.getAlmuerzo();
             lblTotal.setText("Total:" + total);
+            almuerzo += 1;
         });
-        
+
         btnCena.addActionListener((e) -> {
-            registro("Cena: U$D " + ganancia.getCena()+ "\n", areaFeed);
-            total= total + ganancia.getCena();
+            registro("Cena: U$D " + ganancia.getCena() + "\n", areaFeed);
+            total = total + ganancia.getCena();
             lblTotal.setText("Total:" + total);
+            cena += 1;
         });
-        
+
         btnCine.addActionListener((e) -> {
-            registro("Cine: U$D " + + ganancia.getCine()+ "\n", areaFeed);
-            total= total + ganancia.getCine();
+            registro("Cine: U$D " + +ganancia.getCine() + "\n", areaFeed);
+            total = total + ganancia.getCine();
             lblTotal.setText("Total:" + total);
+            cine += 1;
         });
-        
+
         btnDesayuno.addActionListener((e) -> {
-            registro("Desayuno: U$D " + ganancia.getDesayuno()+ "\n", areaFeed);
-            total= total + ganancia.getDesayuno();
+            registro("Desayuno: U$D " + ganancia.getDesayuno() + "\n", areaFeed);
+            total = total + ganancia.getDesayuno();
             lblTotal.setText("Total:" + total);
+            desayuno += 1;
         });
-        
+
         btnPileta.addActionListener((e) -> {
-            registro("Pileta: U$D " + ganancia.getPileta()+ "\n", areaFeed);
-            total= total + ganancia.getPileta();
+            registro("Pileta: U$D " + ganancia.getPileta() + "\n", areaFeed);
+            total = total + ganancia.getPileta();
             lblTotal.setText("Total:" + total);
+            pileta += 1;
         });
-        
+
         btnSpa.addActionListener((e) -> {
             registro("Spa: U$D " + ganancia.getSpa() + "\n", areaFeed);
-            total= total + ganancia.getSpa();
+            total = total + ganancia.getSpa();
             lblTotal.setText("Total:" + total);
+            spa += 1;
+        });
+
+        btnCancelar.addActionListener((e) -> {
+            gaseosa = 0;
+            tostado = 0;
+            cerveza = 0;
+            vino = 0;
+            snacks = 0;
+            licuado = 0;
+            teatro = 0;
+            cine = 0;
+            cena = 0;
+            almuerzo = 0;
+            desayuno = 0;
+            pileta = 0;
+            spa = 0;
+            total = 0;
+            lblTotal.setText("Total:" + total);
+            areaFeed.setText("");
         });
         
-        btnServicio.addActionListener((e) -> {
-            SubServicios serv = new SubServicios();
+        btnAceptar.addActionListener((e) -> {
+            ganancia.setCantGaseosa(gaseosa);
+            ganancia.setCantTostado(tostado);
+            ganancia.setCantCerveza(cerveza);
+            ganancia.setCantVino(vino);
+            ganancia.setCantSnacks(snacks);
+            ganancia.setCantLicuado(licuado);
+            ganancia.setCantTeatro(teatro);
+            ganancia.setCantCine(cine);
+            ganancia.setCantCena(cena);
+            ganancia.setCantAlmuerzo(almuerzo);
+            ganancia.setCantDesayuno(desayuno);
+            ganancia.setCantPileta(pileta);
+            ganancia.setCantSpa(spa);
+            gaseosa = 0;
+            tostado = 0;
+            cerveza = 0;
+            vino = 0;
+            snacks = 0;
+            licuado = 0;
+            teatro = 0;
+            cine = 0;
+            cena = 0;
+            almuerzo = 0;
+            desayuno = 0;
+            pileta = 0;
+            spa = 0;
+            total = 0;
+            lblTotal.setText("Total:" + total);
+            areaFeed.setText("");
         });
-        
-        
-        
-        
+
         frame.add(lblTotal);
         frame.add(areaFeed);
         frame.add(btnTeatro);
@@ -163,8 +228,24 @@ public class Servicios {
     public void setGanancia(Ganancia ganancia) {
         this.ganancia = ganancia;
     }
-    
-    public void registro(String texto, JTextArea areaFeed){
-        areaFeed.setText(areaFeed.getText()+texto);
+
+    public JTextArea getAreaFeed() {
+        return areaFeed;
+    }
+
+    public void setAreaFeed(JTextArea areaFeed) {
+        this.areaFeed = areaFeed;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public void registro(String texto, JTextArea areaFeed) {
+        areaFeed.setText(areaFeed.getText() + texto);
     }
 }

@@ -200,7 +200,7 @@ public class Ganancia {
         return spa;
     }
 
-    public int getGasesosa() {
+    public int getGaseosa() {
         return gasesosa;
     }
 
@@ -279,8 +279,4 @@ public class Ganancia {
 //    public int valorTotal(){
 //        return valorAlmuerzo()+valorCena()+valorCerveza()+valorCine()+valorDesayuno()+valorGasesosa()+valorLicuado()+valorPileta()+valorSnacks()+valorSpa()+valorTeatro()+valorTostado()+valorVino()+habitacion;
 //    }
-
-    String getGaseosa() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

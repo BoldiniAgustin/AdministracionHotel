@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -95,6 +97,7 @@ public class Final1 {
 
         JComboBox cmbBxAdd = new JComboBox();
         cmbBxAdd.setBounds(520, 50, 200, 20);
+        cmbBxAdd.addItem("");
 
         JButton btnBorrar = new JButton("Borrar Integrante");
         btnBorrar.setBounds(520, 250, 200, 30);
@@ -111,6 +114,12 @@ public class Final1 {
         btnLimpiar.setMnemonic('L');
 
         //Actions
+        cmbBxAdd.addActionListener((e) -> {
+            if (cmbBxAdd.getSelectedItem().equals(e)) {
+                
+            }
+        });
+        
         fldGrupo.addActionListener((e) -> {
             fldNombre.requestFocus();
         });
@@ -146,26 +155,27 @@ public class Final1 {
         });
 
         btnAnadir.addActionListener((e) -> {
+                
             try {
                 String nacimientotxt = fldDia.getText() + "/" + fldMes.getText() + "/" + fldAnio.getText();
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                Date nacimiento = sdf.parse(nacimientotxt);
+                Date nacimiento;
+                nacimiento = sdf.parse(nacimientotxt);
                 Cliente c = new Cliente(fldNombre.getText(), fldDni.getText(), fldNacionalidad.getText(), nacimiento, "Masculino".equals(cmbBxSexo.getSelectedItem()));
                 personas.add(c);
                 c.setGrupo(fldGrupo.getText());
+                cmbBxAdd.addItem(c);
+                fldNombre.setText("");
+                fldGrupo.setText("");
+                fldNacionalidad.setText("");
+                fldAnio.setText("");
+                fldDia.setText("");
+                fldDni.setText("");
+                fldMes.setText("");
             } catch (ParseException ex) {
             }
-        });
-
-        btnAnadir.addActionListener((e) -> {
-            cmbBxAdd.addItem(fldNombre.getText());
-            fldNombre.setText("");
-            fldGrupo.setText("");
-            fldNacionalidad.setText("");
-            fldAnio.setText("");
-            fldDia.setText("");
-            fldDni.setText("");
-            fldMes.setText("");
+                
+     
         });
 
         btnBorrar.addActionListener((e) -> {

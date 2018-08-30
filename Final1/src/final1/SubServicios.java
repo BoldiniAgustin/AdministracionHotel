@@ -12,6 +12,7 @@ import javax.swing.border.Border;
 public class SubServicios extends Servicios{
     
     public SubServicios() {
+        
         Font negrita = new Font("Arial", Font.BOLD, 18);
         Border blackline = BorderFactory.createLineBorder(Color.black);
 
@@ -22,11 +23,11 @@ public class SubServicios extends Servicios{
         frame.setLayout(null);
         frame.getContentPane().setBackground(Color.gray);
         
-        JLabel lblTotal = new JLabel("Servicios");
-        lblTotal.setBounds(175, 15, 200, 20);
-        lblTotal.setFont(negrita);
+        JLabel lblServicio = new JLabel("Servicios");
+        lblServicio.setBounds(175, 15, 200, 20);
+        lblServicio.setFont(negrita);
         
-        JButton btnGaseosa = new JButton("Gaseosa: U$D " + ganancia.getGasesosa());
+        JButton btnGaseosa = new JButton("Gaseosa: U$D " + ganancia.getGaseosa());
         btnGaseosa.setBounds(15, 40, 150, 50);
         btnGaseosa.setBackground(Color.black);
         btnGaseosa.setForeground(Color.white);
@@ -61,51 +62,74 @@ public class SubServicios extends Servicios{
         btnCancelar.setBackground(Color.black);
         btnCancelar.setForeground(Color.white);
         
+        //Funciones
         
         btnGaseosa.addActionListener((ActionEvent e) -> {
             registro("Gaseosa: U$D " + ganancia.getGaseosa()+ "\n", areaFeed);
-            frame.dispose();
+            total= total + ganancia.getGaseosa();
+            lblTotal.setText("Total:" + total);
+            gaseosa += 1;
+            frame.setVisible(false);
         });
         
         btnTostado.addActionListener((ActionEvent e) -> {
             registro("Tostado: U$D " + ganancia.getTostado()+ "\n", areaFeed);
-            frame.dispose();
+            total= total + ganancia.getTostado();
+            lblTotal.setText("Total:" + total);
+            tostado += 1;
+            frame.setVisible(false);
         });
         
         btnCerveza.addActionListener((ActionEvent e) -> {
             registro("Cerveza: U$D " + ganancia.getCerveza()+ "\n", areaFeed);
-            frame.dispose();
+            total= total + ganancia.getCerveza();
+            lblTotal.setText("Total:" + total);
+            cerveza += 1;
+            frame.setVisible(false);
         });
         
         btnVino.addActionListener((ActionEvent e) -> {
             registro("Vino: U$D " + ganancia.getVino()+ "\n", areaFeed);
-            frame.dispose();
+            total= total + ganancia.getVino();
+            lblTotal.setText("Total:" + total);
+            vino += 1;
+            frame.setVisible(false);
         });
         
         btnSnacks.addActionListener((ActionEvent e) -> {
             registro("Snacks: U$D " + ganancia.getSnacks()+ "\n", areaFeed);
-            frame.dispose();
+            total= total + ganancia.getSnacks();
+            lblTotal.setText("Total:" + total);
+            snacks += 1;
+            frame.setVisible(false);
         });
         
         btnLicuado.addActionListener((ActionEvent e) -> {
             registro("Licuado: U$D " + ganancia.getLicuado()+ "\n", areaFeed);
-            frame.dispose();
+            total= total + ganancia.getLicuado();
+            lblTotal.setText("Total:" + total);
+            licuado += 1;
+            frame.setVisible(false);
         });
         
         btnCancelar.addActionListener((ActionEvent e) -> {
-            frame.dispose();
+            frame.setVisible(false);
         });
         
         
         frame.add(btnCancelar);
-        frame.add(lblTotal);
+        frame.add(lblServicio);
         frame.add(btnGaseosa);
         frame.add(btnTostado);
         frame.add(btnCerveza);
         frame.add(btnVino);
         frame.add(btnSnacks);
         frame.add(btnLicuado);
-        frame.setVisible(true);
+        frame.setVisible(false);
+        
+        btnServicio.addActionListener((e) -> {
+            frame.setVisible(true);
+        });
     }
     
 }

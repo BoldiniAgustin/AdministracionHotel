@@ -102,7 +102,7 @@ public class Login {
             char[] arrayC = fldPassword.getPassword();
             String pass = new String(arrayC);
             if (verif == true) {
-                Servicios serv = new Servicios();
+                SubServicios serv = new SubServicios();
                 frame.dispose();
             }else{
                 btnRegistro.setVisible(true);
