@@ -8,17 +8,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class Final1 {
+public class Registro {
 
-    public Final1() {
+    public Registro() {
         HashMap grupo = new HashMap();
         List<Cliente> personas = new ArrayList<>();
         Font negrita = new Font("Arial", Font.BOLD, 18);
@@ -164,7 +162,7 @@ public class Final1 {
                 Cliente c = new Cliente(fldNombre.getText(), fldDni.getText(), fldNacionalidad.getText(), nacimiento, "Masculino".equals(cmbBxSexo.getSelectedItem()));
                 personas.add(c);
                 c.setGrupo(fldGrupo.getText());
-                cmbBxAdd.addItem(c);
+                cmbBxAdd.addItem(c.getNombre());
                 fldNombre.setText("");
                 fldGrupo.setText("");
                 fldNacionalidad.setText("");
@@ -172,6 +170,7 @@ public class Final1 {
                 fldDia.setText("");
                 fldDni.setText("");
                 fldMes.setText("");
+                System.out.println(":" + personas);
             } catch (ParseException ex) {
             }
                 

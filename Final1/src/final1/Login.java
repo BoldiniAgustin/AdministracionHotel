@@ -6,19 +6,20 @@ import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class Login {
 
     private boolean verif;
-    
+
     public static void main(String[] args) {
-       Login login = new Login();
+        Login login = new Login();
     }
 
     public Login() {
-        
+
         Font negrita = new Font("Arial", Font.BOLD, 18);
 
         JFrame frame = new JFrame("Login");
@@ -27,7 +28,7 @@ public class Login {
         frame.setResizable(false);
         frame.setLayout(null);
         frame.getContentPane().setBackground(Color.gray);
-        
+
         JLabel lbl1 = new JLabel("Login");
         lbl1.setBounds(120, 10, 100, 20);
         lbl1.setForeground(Color.black);
@@ -35,14 +36,14 @@ public class Login {
 
         JButton btnCliente = new JButton("Cliente");
         btnCliente.setBounds(10, 50, 130, 40);
-        
+
         JButton btnEmpleado = new JButton("Empleado");
         btnEmpleado.setBounds(160, 50, 130, 40);
-        
+
         JButton btnRegistro = new JButton("Registro");
         btnRegistro.setBounds(10, 50, 130, 40);
         btnRegistro.setVisible(false);
-        
+
         JButton btnCobrar = new JButton("Cobrar");
         btnCobrar.setBounds(160, 50, 130, 40);
         btnCobrar.setVisible(false);
@@ -65,12 +66,10 @@ public class Login {
         fldPassword.setBounds(130, 80, 130, 20);
         fldPassword.setVisible(false);
 
-        JButton btnEnter = new JButton("Log In");
-        btnEnter.setBounds(65, 140, 150, 30);
-        btnEnter.setVisible(false);
+        JButton btnLogin = new JButton("Log In");
+        btnLogin.setBounds(65, 140, 150, 30);
+        btnLogin.setVisible(false);
 
-        
-        
         btnEmpleado.addActionListener((ActionEvent e) -> {
             frame.setSize(300, 200);
             btnEmpleado.setVisible(false);
@@ -79,11 +78,11 @@ public class Login {
             lbl3.setVisible(true);
             fldUser.setVisible(true);
             fldPassword.setVisible(true);
-            btnEnter.setVisible(true);   
+            btnLogin.setVisible(true);
             verif = false;
-            
+
         });
-        
+
         btnCliente.addActionListener((ActionEvent e) -> {
             frame.setSize(300, 200);
             btnEmpleado.setVisible(false);
@@ -92,34 +91,39 @@ public class Login {
             lbl3.setVisible(true);
             fldUser.setVisible(true);
             fldPassword.setVisible(true);
-            btnEnter.setVisible(true);
+            btnLogin.setVisible(true);
             verif = true;
-            
+
         });
-        
-        btnEnter.addActionListener((ActionEvent e) -> {
+
+        btnLogin.addActionListener((ActionEvent e) -> {
             String user = fldUser.getText();
             char[] arrayC = fldPassword.getPassword();
             String pass = new String(arrayC);
             if (verif == true) {
                 SubServicios serv = new SubServicios();
                 frame.dispose();
-            }else{
-                btnRegistro.setVisible(true);
-                btnCobrar.setVisible(true);
-                lbl2.setVisible(false);
-                lbl3.setVisible(false);
-                fldUser.setVisible(false);
-                fldPassword.setVisible(false);
-                frame.setSize(300, 100);                
+            } else {
+                //if ((user.equals("BlakeBelladonna") && pass.equals("gato1234")) || (user.equals("RubyRose") && pass.equals("rojoredd")) || (user.equals("WeissSchnee") && pass.equals("plata123"))) {
+                    btnRegistro.setVisible(true);
+                    btnCobrar.setVisible(true);
+                    lbl2.setVisible(false);
+                    lbl3.setVisible(false);
+                    fldUser.setVisible(false);
+                    fldPassword.setVisible(false);
+                    frame.setSize(300, 100);
+               // } else {
+               //     JOptionPane.showMessageDialog(null, "Contraseña o nombre de usuario no valido", "Error" ,JOptionPane.WARNING_MESSAGE);
+               // }
+
             }
         });
-        
+
         btnRegistro.addActionListener((ActionEvent e) -> {
-            Final1 registro = new Final1();
+            Registro registro = new Registro();
             frame.dispose();
         });
-        
+
         btnCobrar.addActionListener((ActionEvent e) -> {
             frame.dispose();
         });
@@ -128,7 +132,7 @@ public class Login {
         frame.add(btnRegistro);
         frame.add(btnEmpleado);
         frame.add(btnCliente);
-        frame.add(btnEnter);
+        frame.add(btnLogin);
         frame.add(lbl1);
         frame.add(lbl2);
         frame.add(lbl3);
@@ -136,11 +140,4 @@ public class Login {
         frame.add(fldPassword);
         frame.setVisible(true);
     }
-    
-    public void Cliente(){
-        
-    }
-
-    
-
 }
