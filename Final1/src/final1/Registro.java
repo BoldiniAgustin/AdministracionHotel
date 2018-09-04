@@ -96,7 +96,6 @@ public class Registro {
 
         JComboBox cmbBxAdd = new JComboBox();
         cmbBxAdd.setBounds(520, 50, 200, 20);
-        cmbBxAdd.addItem("");
 
         JButton btnBorrar = new JButton("Borrar Integrante");
         btnBorrar.setBounds(520, 250, 200, 30);
@@ -144,13 +143,7 @@ public class Registro {
         });
 
         btnLimpiar.addActionListener((e) -> {
-            fldNombre.setText("");
-            fldGrupo.setText("");
-            fldNacionalidad.setText("");
-            fldAnio.setText("");
-            fldDia.setText("");
-            fldDni.setText("");
-            fldMes.setText("");
+            vaciar(fldNombre, fldGrupo,fldNacionalidad, fldAnio,  fldDia, fldDni, fldMes);
         });
 
         btnAnadir.addActionListener((e) -> {
@@ -164,14 +157,8 @@ public class Registro {
                 personas.add(c);
                 c.setGrupo(fldGrupo.getText());
                 cmbBxAdd.addItem(c.getNombre());
-                fldNombre.setText("");
                 fldGrupo.setEditable(false);
-                fldNacionalidad.setText("");
-                fldAnio.setText("");
-                fldDia.setText("");
-                fldDni.setText("");
-                fldMes.setText("");
-                System.out.println(":" + personas);
+                vaciar(fldNombre, fldGrupo,fldNacionalidad, fldAnio,  fldDia, fldDni, fldMes);
             } catch (ParseException ex) {
             }
                 
@@ -179,21 +166,18 @@ public class Registro {
         });
         
         btnConfirmar.addActionListener((e) -> {
+            
             grupo.put(fldGrupo.getText(), personas);
             personas.clear();
-            fldNombre.setText("");
-            fldGrupo.setText("");
-            fldNacionalidad.setText("");
-            fldAnio.setText("");
-            fldDia.setText("");
-            fldDni.setText("");
-            fldMes.setText("");
+            fldGrupo.setEditable(true);
+            vaciar(fldNombre, fldGrupo,fldNacionalidad, fldAnio,  fldDia, fldDni, fldMes);
             fldGrupo.setEditable(true);
             cmbBxAdd.removeAllItems();
             
         });
 
         btnBorrar.addActionListener((e) -> {
+            personas.remove(cmbBxAdd.getSelectedIndex());
             cmbBxAdd.removeItem(cmbBxAdd.getSelectedItem());
         });
 
@@ -222,5 +206,17 @@ public class Registro {
         frame.add(lblNacionalidad);
         frame.add(fldNacionalidad);
         frame.setVisible(true);
+    }
+    
+    public void vaciar(JTextField fldNombre, JTextField fldGrupo, JTextField fldNacionalidad, JTextField fldAnio, JTextField fldDia, JTextField fldDni, JTextField fldMes){
+        fldNombre.setText("");
+            if (fldGrupo.isEditable()) {
+                fldGrupo.setText("");
+            }
+            fldNacionalidad.setText("");
+            fldAnio.setText("");
+            fldDia.setText("");
+            fldDni.setText("");
+            fldMes.setText("");
     }
 }

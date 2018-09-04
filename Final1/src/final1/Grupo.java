@@ -4,10 +4,12 @@ public class Grupo {
 
     private String grupo;
     private Ganancia ganancia;
+    private Habitacion habitacion;
 
     public Grupo() {
         grupo = "";
         ganancia = new Ganancia();
+        habitacion = new Habitacion();
     }
 
     public Grupo(String grupo) {
@@ -28,6 +30,14 @@ public class Grupo {
 
     public void setGanancia(Ganancia ganancia) {
         this.ganancia = ganancia;
+    }
+
+    public Habitacion getHabitacion() {
+        return habitacion;
+    }
+
+    public void setHabitacion(Habitacion habitacion) {
+        this.habitacion = habitacion;
     }
     
     
