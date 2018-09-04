@@ -165,7 +165,7 @@ public class Registro {
                 c.setGrupo(fldGrupo.getText());
                 cmbBxAdd.addItem(c.getNombre());
                 fldNombre.setText("");
-                fldGrupo.setText("");
+                fldGrupo.setEditable(false);
                 fldNacionalidad.setText("");
                 fldAnio.setText("");
                 fldDia.setText("");
@@ -176,6 +176,21 @@ public class Registro {
             }
                 
      
+        });
+        
+        btnConfirmar.addActionListener((e) -> {
+            grupo.put(fldGrupo.getText(), personas);
+            personas.clear();
+            fldNombre.setText("");
+            fldGrupo.setText("");
+            fldNacionalidad.setText("");
+            fldAnio.setText("");
+            fldDia.setText("");
+            fldDni.setText("");
+            fldMes.setText("");
+            fldGrupo.setEditable(true);
+            cmbBxAdd.removeAllItems();
+            
         });
 
         btnBorrar.addActionListener((e) -> {
