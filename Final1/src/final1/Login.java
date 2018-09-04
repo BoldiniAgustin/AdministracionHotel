@@ -107,12 +107,12 @@ public class Login {
                 SubServicios serv = new SubServicios();
                 frame.dispose();
             } else {
-                if ((user.equals("BlakeBelladonna") && pass.equals("gato1234")) || (user.equals("RubyRose") && pass.equals("rojoredd")) || (user.equals("WeissSchnee") && pass.equals("plata123"))) {
+//                if ((user.equals("BlakeBelladonna") && pass.equals("gato1234")) || (user.equals("RubyRose") && pass.equals("rojoredd")) || (user.equals("WeissSchnee") && pass.equals("plata123"))) {
                     EmpleadoLogin empleado = new EmpleadoLogin();
                     frame.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Contraseña o nombre de usuario no valido", "Error" ,JOptionPane.WARNING_MESSAGE);
-                }
+//                } else {
+//                    JOptionPane.showMessageDialog(null, "Contraseña o nombre de usuario no valido", "Error" ,JOptionPane.WARNING_MESSAGE);
+//                }
 
             }
     }

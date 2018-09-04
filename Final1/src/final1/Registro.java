@@ -2,12 +2,8 @@ package final1;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -16,10 +12,10 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class Registro {
-    private HashMap grupo;
+    private Hashmap grupo;
 
     public Registro() {
-        grupo = new HashMap();
+        grupo = new Hashmap();
         List<Cliente> personas = new ArrayList<>();
         Font negrita = new Font("Arial", Font.BOLD, 18);
 
@@ -115,6 +111,7 @@ public class Registro {
 
         //Actions
         cmbBxAdd.addActionListener((e) -> {
+            System.out.println(cmbBxAdd.getSelectedItem());
             if (!cmbBxAdd.getSelectedItem().equals("")) {
                 fldNombre.setText(personas.get(cmbBxAdd.getSelectedIndex()-1).getNombre());
                 fldNombre.setEditable(false);
@@ -128,6 +125,12 @@ public class Registro {
                 fldMes.setEditable(false);
                 fldAnio.setText(String.valueOf(personas.get(cmbBxAdd.getSelectedIndex()-1).getNacimiento().get(Calendar.YEAR)));
                 fldAnio.setEditable(false);
+                if (personas.get(cmbBxAdd.getSelectedIndex()-1).isSexo()) {
+                    cmbBxSexo.setSelectedItem("Masculino");
+                }else{
+                    cmbBxSexo.setSelectedItem("Femenino");
+                }
+                cmbBxSexo.setEditable(false);
                 
             }else{
                 fldNombre.setEditable(true);
@@ -137,6 +140,7 @@ public class Registro {
                 fldMes.setEditable(true);
                 fldAnio.setEditable(true);
                 vaciar(fldNombre, fldGrupo,fldNacionalidad, fldAnio,  fldDia, fldDni, fldMes);
+                cmbBxSexo.setEditable(true);
             }
         });
         
@@ -180,13 +184,19 @@ public class Registro {
         });
         
         btnConfirmar.addActionListener((e) -> {
-            
-            grupo.put(fldGrupo.getText(), personas);
-            personas.clear();
+            System.out.println(personas);
+            System.out.println(fldGrupo.getText());
+            List <Cliente> persona = new ArrayList();
+            for (int i = 0; i < personas.size(); i++) {
+                persona.add(personas.get(i));
+            }
+            grupo.getGrupo().put(fldGrupo.getText(), persona);
             fldGrupo.setEditable(true);
             vaciar(fldNombre, fldGrupo,fldNacionalidad, fldAnio,  fldDia, fldDni, fldMes);
-            fldGrupo.setEditable(true);
-            cmbBxAdd.removeAllItems();
+            personas.clear();
+            for (int i = cmbBxAdd.getItemCount()-1; i > 0; i--) {
+                cmbBxAdd.removeItemAt(i);
+            }
             
         });
 

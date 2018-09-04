@@ -77,7 +77,7 @@ public class Cliente extends Grupo {
 
     @Override
     public String toString() {
-        return "Cliente{" + "nacimiento=" + nacimiento + ", dni=" + dni + ", nombre=" + nombre + ", nacionalidad=" + nacionalidad + ", sexo=" + sexo + '}';
+        return "Cliente{" + ", nombre=" + nombre + ", dni=" + dni  + "nacimiento=" + nacimiento.getTime() + ", nacionalidad=" + nacionalidad + ", sexo=" + sexo + '}';
     }
 
     
