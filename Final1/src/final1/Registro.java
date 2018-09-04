@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -96,6 +97,7 @@ public class Registro {
 
         JComboBox cmbBxAdd = new JComboBox();
         cmbBxAdd.setBounds(520, 50, 200, 20);
+        cmbBxAdd.addItem("");
 
         JButton btnBorrar = new JButton("Borrar Integrante");
         btnBorrar.setBounds(520, 250, 200, 30);
@@ -113,8 +115,28 @@ public class Registro {
 
         //Actions
         cmbBxAdd.addActionListener((e) -> {
-            if (cmbBxAdd.getSelectedItem().equals(e)) {
+            if (!cmbBxAdd.getSelectedItem().equals("")) {
+                fldNombre.setText(personas.get(cmbBxAdd.getSelectedIndex()-1).getNombre());
+                fldNombre.setEditable(false);
+                fldDni.setText(personas.get(cmbBxAdd.getSelectedIndex()-1).getDni());
+                fldDni.setEditable(false);
+                fldNacionalidad.setText(personas.get(cmbBxAdd.getSelectedIndex()-1).getNacionalidad());
+                fldNacionalidad.setEditable(false);
+                fldDia.setText(String.valueOf(personas.get(cmbBxAdd.getSelectedIndex()-1).getNacimiento().get(Calendar.DAY_OF_MONTH)));
+                fldDia.setEditable(false);
+                fldMes.setText(String.valueOf(personas.get(cmbBxAdd.getSelectedIndex()-1).getNacimiento().get(Calendar.MONTH)));
+                fldMes.setEditable(false);
+                fldAnio.setText(String.valueOf(personas.get(cmbBxAdd.getSelectedIndex()-1).getNacimiento().get(Calendar.YEAR)));
+                fldAnio.setEditable(false);
                 
+            }else{
+                fldNombre.setEditable(true);
+                fldDni.setEditable(true);
+                fldNacionalidad.setEditable(true);
+                fldDia.setEditable(true);
+                fldMes.setEditable(true);
+                fldAnio.setEditable(true);
+                vaciar(fldNombre, fldGrupo,fldNacionalidad, fldAnio,  fldDia, fldDni, fldMes);
             }
         });
         
@@ -147,22 +169,14 @@ public class Registro {
         });
 
         btnAnadir.addActionListener((e) -> {
-                
-            try {
-                String nacimientotxt = fldDia.getText() + "/" + fldMes.getText() + "/" + fldAnio.getText();
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                Date nacimiento;
-                nacimiento = sdf.parse(nacimientotxt);
+                Calendar nacimiento = Calendar.getInstance();
+                nacimiento.set(Integer.parseInt(fldAnio.getText()), Integer.parseInt(fldMes.getText()),Integer.parseInt(fldDia.getText()));
                 Cliente c = new Cliente(fldNombre.getText(), fldDni.getText(), fldNacionalidad.getText(), nacimiento, "Masculino".equals(cmbBxSexo.getSelectedItem()));
                 personas.add(c);
                 c.setGrupo(fldGrupo.getText());
                 cmbBxAdd.addItem(c.getNombre());
                 fldGrupo.setEditable(false);
                 vaciar(fldNombre, fldGrupo,fldNacionalidad, fldAnio,  fldDia, fldDni, fldMes);
-            } catch (ParseException ex) {
-            }
-                
-     
         });
         
         btnConfirmar.addActionListener((e) -> {
@@ -177,8 +191,11 @@ public class Registro {
         });
 
         btnBorrar.addActionListener((e) -> {
-            personas.remove(cmbBxAdd.getSelectedIndex());
+            if (!cmbBxAdd.getSelectedItem().equals("")) {
+            personas.remove(cmbBxAdd.getSelectedIndex()-1);
             cmbBxAdd.removeItem(cmbBxAdd.getSelectedItem());
+            }
+            
         });
 
         //Adds

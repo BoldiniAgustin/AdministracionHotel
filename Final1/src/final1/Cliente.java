@@ -5,7 +5,7 @@
  */
 package final1;
 
-import java.util.Date;
+import java.util.Calendar;
 
 /**
  *
@@ -13,21 +13,21 @@ import java.util.Date;
  */
 public class Cliente extends Grupo {
 
-    private Date nacimiento;
+    private Calendar nacimiento;
     private String dni;
     private String nombre;
     private String nacionalidad;
     private boolean sexo;
 
     public Cliente() {
-        nacimiento = new Date();
+        nacimiento = Calendar.getInstance();
         dni = "";
         nombre = "";
         nacionalidad = "";
         sexo = false;
     }
 
-    public Cliente(String nombre, String dni, String nacionalidad, Date nacimiento, boolean sexo) {
+    public Cliente(String nombre, String dni, String nacionalidad, Calendar nacimiento, boolean sexo) {
         this.nacimiento = nacimiento;
         this.dni = dni;
         this.nombre = nombre;
@@ -35,11 +35,11 @@ public class Cliente extends Grupo {
         this.sexo = sexo;
     }
 
-    public Date getNacimiento() {
+    public Calendar getNacimiento() {
         return nacimiento;
     }
 
-    public void setNacimiento(Date nacimiento) {
+    public void setNacimiento(Calendar nacimiento) {
         this.nacimiento = nacimiento;
     }
 
