@@ -15,9 +15,10 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class Registro {
+    private HashMap grupo;
 
     public Registro() {
-        HashMap grupo = new HashMap();
+        grupo = new HashMap();
         List<Cliente> personas = new ArrayList<>();
         Font negrita = new Font("Arial", Font.BOLD, 18);
 

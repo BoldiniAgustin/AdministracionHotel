@@ -104,7 +104,7 @@ public class Login {
                 SubServicios serv = new SubServicios();
                 frame.dispose();
             } else {
-                //if ((user.equals("BlakeBelladonna") && pass.equals("gato1234")) || (user.equals("RubyRose") && pass.equals("rojoredd")) || (user.equals("WeissSchnee") && pass.equals("plata123"))) {
+                if ((user.equals("BlakeBelladonna") && pass.equals("gato1234")) || (user.equals("RubyRose") && pass.equals("rojoredd")) || (user.equals("WeissSchnee") && pass.equals("plata123"))) {
                     btnRegistro.setVisible(true);
                     btnCobrar.setVisible(true);
                     lbl2.setVisible(false);
@@ -112,9 +112,9 @@ public class Login {
                     fldUser.setVisible(false);
                     fldPassword.setVisible(false);
                     frame.setSize(300, 100);
-               // } else {
-               //     JOptionPane.showMessageDialog(null, "Contraseña o nombre de usuario no valido", "Error" ,JOptionPane.WARNING_MESSAGE);
-               // }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Contraseña o nombre de usuario no valido", "Error" ,JOptionPane.WARNING_MESSAGE);
+                }
 
             }
         });
